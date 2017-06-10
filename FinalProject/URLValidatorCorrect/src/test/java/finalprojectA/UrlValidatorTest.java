@@ -52,6 +52,23 @@ public class UrlValidatorTest extends TestCase {
         //testIsValid(testUrlPartsOptions, options);
    }
 
+    public void testYourSecondPartition(){
+        UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
+        System.out.println("Expected: True  Actual: " + urlVal.isValid("http://somewhere.com/pathxyz/file(1).html"));
+        System.out.println("Expected: True  Actual: " + urlVal.isValid("http://somewhere.uk"));
+        System.out.println("Expected: True  Actual: " + urlVal.isValid("http://amazon.cat"));
+        System.out.println("Expected: True  Actual: " + urlVal.isValid("http://amazon.it"));
+
+        System.out.println("Expected: False  Actual: " + urlVal.isValid("http://amazon"));
+        System.out.println("Expected: False  Actual: " + urlVal.isValid("http://amazon."));
+        System.out.println("Expected: False  Actual: " + urlVal.isValid("http://amazon.pot"));
+
+        System.out.println("Expected: False  Actual: " + urlVal.isValid("https://com.amazon"));
+        System.out.println("Expected: True  Actual: " + urlVal.isValid("localhost:3000"));
+        System.out.println("Expected: True  Actual: " + urlVal.isValid("http://localhost:5432"));
+
+    }
+
    public void testIsValidScheme() {
       if (printStatus) {
          System.out.print("\n testIsValidScheme() ");

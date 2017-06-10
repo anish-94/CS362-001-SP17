@@ -122,6 +122,7 @@ public class DomainValidator implements Serializable {
     /** Private constructor. */
     private DomainValidator(boolean allowLocal) {
        this.allowLocal = allowLocal;
+
     }
 
     /**
